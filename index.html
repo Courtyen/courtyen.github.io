@@ -30,6 +30,17 @@
         .ingredient-list {
             margin-bottom: 20px;
         }
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
     </style>
 </head>
 <body>
@@ -68,9 +79,16 @@
             Note that the raw data is displayed differently depending on whether you are using Firefox or Chrome. 
             If you are using Firefox, you can click the arrows next to the response data to open up the chunks of data - 
             or you can flick the Raw switch to see all the data as once (in one big looooooong line).</p>
-        <br>
-        <img src="inventoryfirefox.png" alt="Firefox" style="max-width: 50%; height: auto;">
-        <img src="inevntorychrome.png" alt="Chrome" style="max-width: 50%; height: auto;">
+        <div class="row">
+            <div class="column">
+                <h3>Firefox</h3>
+                <img src="inventoryfirefox.png" alt="Firefox" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="column">
+                <h3>Chrome</h3>
+                <img src="inevntorychrome.png" alt="Chrome" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
 
 <p class="instruct">A quick rundown of the data here:
     <ul class="instruct">
