@@ -22,20 +22,13 @@
         h1, h2 {
             text-align: center;
         }
-        .recipe {
-            margin-top: 20px;
-        }
-        .terms {
-            margin-top: 20px;
-        }
         .instruct {
             margin-top: 20px;
+            margin-bottom: 20px; /* Adjusted margin-bottom for paragraphs */
+            line-height: 1.5; /* Increased line height */
         }
         .ingredient-list {
             margin-bottom: 20px;
-        }
-        .instruction {
-            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -43,17 +36,17 @@
     <div class="container">
         <h1>SSW Limit Workaround</h1>
         
-        <p>Hey y'all! For those with Premium access, do you want a completely legal way of telling that SSW owl to 
+        <p class="instruct">Hey y'all! For those with Premium access, do you want a completely legal way of telling that SSW owl to 
             <strong>go away</strong> and let you price your entire shop at once? Well, do I have the information for you!</p>
 
-<p>The SSW has some sort of counter that ticks up whenever you submit a request. I believe it ticks up to 40, and then you can
+<p class="instruct">The SSW has some sort of counter that ticks up whenever you submit a request. I believe it ticks up to 40, and then you can
     no longer submit requests; you have to wait for the next hour to tick over. You have the option to select "Price Only" mode, 
     which will return a single average price - but that's not very useful for pricing your shop. (It is, however, very useful for 
     checking if something is UB or not). Price Only mode, from what I can tell, does <em>not</em> add to your SSW counter.</p>
 
-<p>Turns out, behind the scenes, the data that SSW sends back is identical, but Price Only obscures the useful bits. But we can access the response data ourselves by inspecting the browser!</p>
+<p class="instruct">Turns out, behind the scenes, the data that SSW sends back is identical, but Price Only obscures the useful bits. But we can access the response data ourselves by inspecting the browser!</p>
 
-<ol>
+<ol class="instruct">
     <li>Right-click any browser page where you can access the SSW - the Inventory view works for now. Click Inspect in the menu popup. 
         You should see a new frame pop up with a whole bunch of information.</li>
     <li>You're looking for a bunch of tabs such as Console, Elements, Inspector, Network etc. You may need to access a dropdown to see the rest of the tabs. 
@@ -64,7 +57,7 @@
         (Again, you may need to access a dropdown to see the rest of the tabs). Click on Response. 
         We now have useful numbers - this is the data that is usually returned with the SSW response, except we ticked Price Only so that damn owl hid the good stuff.
     </li> </ol>
-    <p>A quick rundown of the data here:
+    <p class="instruct">A quick rundown of the data here:
         <ul>
             <li>Think of the table that usually pops up when you do a SSW search - you get the Account Name, the number in stock, and the prices. Most of that data is here, but broken up into columns. </li>
     <li>"rowcount" is the number of results (i.e the number of stores that have stock). </li>
@@ -73,7 +66,7 @@
         </ul>
 </p>
 
-<p>Note that every time you submit a new SSW request, it will appear as a new entry. Follow Step 3 again, paying close attention to the information after the "ssw_query.php?" to find the right request. 
+<p class="instruct">Note that every time you submit a new SSW request, it will appear as a new entry. Follow Step 3 again, paying close attention to the information after the "ssw_query.php?" to find the right request. 
     Requests are also ordered by time here, so the most recent request should be lowest in the list. You can also refresh the page to clear out some of the clutter if it's getting too hard to navigate</p>
 
     </div>
