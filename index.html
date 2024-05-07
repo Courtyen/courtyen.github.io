@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pancake Recipe</title>
+    <title>SSW Limit Workaround</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,6 +25,12 @@
         .recipe {
             margin-top: 20px;
         }
+        .terms {
+            margin-top: 20px;
+        }
+        .instruct {
+            margin-top: 20px;
+        }
         .ingredient-list {
             margin-bottom: 20px;
         }
@@ -35,34 +41,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Pancake Recipe</h1>
+        <h1>SSW Limit Workaround</h1>
         
-        <div class="recipe">
-            <h2>Ingredients:</h2>
-            <ul class="ingredient-list">
-                <li>1 cup all-purpose flour</li>
-                <li>2 tablespoons sugar</li>
-                <li>1 tablespoon baking powder</li>
-                <li>1/2 teaspoon salt</li>
-                <li>1 cup milk</li>
-                <li>1 large egg</li>
-                <li>2 tablespoons unsalted butter, melted</li>
-                <li>1 teaspoon vanilla extract</li>
-                <li>Additional butter or oil for cooking</li>
-            </ul>
-            
-            <h2>Instructions:</h2>
-            <ol class="instructions">
-                <li>In a large mixing bowl, whisk together the flour, sugar, baking powder, and salt.</li>
-                <li>In another bowl, whisk together the milk, egg, melted butter, and vanilla extract.</li>
-                <li>Pour the wet ingredients into the dry ingredients and stir until just combined. Do not overmix; it's okay if there are lumps.</li>
-                <li>Heat a non-stick skillet or griddle over medium heat and lightly grease with butter or oil.</li>
-                <li>Pour about 1/4 cup of batter onto the skillet for each pancake.</li>
-                <li>Cook until bubbles form on the surface of the pancake and the edges begin to look set, then flip and cook for another 1-2 minutes until golden brown.</li>
-                <li>Repeat with the remaining batter, greasing the skillet as needed.</li>
-                <li>Serve warm with your favorite toppings such as maple syrup, fresh fruits, or whipped cream.</li>
-            </ol>
-        </div>
+        <p>Hey y'all! For those with Premium access, do you want a completely legal way of telling that SSW owl to <strong>go away</strong> and let you price your entire shop at once? Well, do I have the information for you!</p>
+
+<p>The SSW has some sort of counter that ticks up whenever you submit a request. I believe it ticks up to 40, and then you can no longer submit requests; you have to wait for the next hour to tick over. You have the option to select "Price Only" mode, which will return a single average price - but that's not very useful for pricing your shop. (It is, however, very useful for checking if something is UB or not). Price Only mode, from what I can tell, does <em>not</em> add to your SSW counter.</p>
+
+<p>Turns out, behind the scenes, the data that SSW sends back is identical, but Price Only obscures the useful bits. But we can access the response data ourselves by inspecting the browser!</p>
+
+<ol>
+    <li>Right-click any browser page where you can access the SSW - the Inventory view works for now. Click Inspect in the menu popup. You should see a new frame pop up with a whole bunch of information.</li>
+    <li>You're looking for a bunch of tabs such as Console, Elements, Inspector, Network etc. You may need to access a dropdown to see the rest of the tabs. Open the Network tab. The new display may ask you to refresh the page - do so as you normally would, the frame should stay open on your screen.</li>
+    <li>Submit your SSW request for an item, and tick Price Only (make sure it's not something UB!). In the Network tab, in the Name (or File) column, look for something starting with "ssw_query.php?". If you look closer you can see the name of the item you searched is also in there. Click that line, just once.</li>
+    <li>A new frame will open, with more tabs along the top. These should say things like Headers, Cookies/Payload, Preview, Response etc. (Again, you may need to access a dropdown to see the rest of the tabs). Click on Response. We now have useful numbers - this is the data that is usually returned with the SSW response, except we ticked Price Only so that damn owl hid the good stuff. A quick rundown of the data here:
+        <ul>
+            <li>Think of the table that usually pops up when you do a SSW search - you get the Account Name, the number in stock, and the prices. Most of that data is here, but broken up into columns. "rowcount" is the number of results (i.e the number of stores that have stock). "amounts" is the stock count for each store found. "prices" is that sweet number we want - all the known shop prices, cheapest first. "price_str" is the same data but with formatting.</li>
+        </ul>
+    </li>
+</ol>
+
+<p>Note that every time you submit a new SSW request, it will appear as a new entry. Follow Step 3 again, paying close attention to the information after the "ssw_query.php?" to find the right request. Requests are also ordered by time here, so the most recent request should be lowest in the list. You can also refresh the page to clear out some of the clutter if it's getting too hard to</p>
+
     </div>
 </body>
 </html>
