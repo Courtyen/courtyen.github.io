@@ -30,6 +30,13 @@
         .ingredient-list {
             margin-bottom: 20px;
         }
+        /* Define rows */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        /* Define columns */
         .column {
             float: left;
             width: 50%;
@@ -117,14 +124,15 @@
             Note that the raw data is displayed differently depending on whether you are using Firefox or Chrome. 
             If you are using Firefox, you can click the arrows next to the response data to open up the chunks of data - 
             or you can flick the Raw switch to see all the data as once (in one big looooooong line).</p>
+
         <div class="row">
             <div class="column">
                 <h3>Firefox</h3>
-                <img src="inventoryfirefox.png" alt="Firefox" style="max-width: 100%; height: auto;" onclick="openModal(this);">
+                <img src="inventoryfirefox.png" alt="Firefox" style="width:100%" onclick="openModal(this);">
             </div>
             <div class="column">
                 <h3>Chrome</h3>
-                <img src="inventorychrome.png" alt="Chrome" style="max-width: 100%; height: auto;" onclick="openModal(this);">
+                <img src="inventorychrome.png" alt="Chrome" style="width:100%" onclick="openModal(this);">
             </div>
         </div>
 
