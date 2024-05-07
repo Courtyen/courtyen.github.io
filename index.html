@@ -42,20 +42,21 @@
 <p class="instruct">The SSW has some sort of counter that ticks up whenever you submit a request. I believe it ticks up to 40, and then you can
     no longer submit requests; you have to wait for the next hour to tick over. You have the option to select "Price Only" mode, 
     which will return a single average price - but that's not very useful for pricing your shop. (It is, however, very useful for 
-    checking if something is UB or not). Price Only mode, from what I can tell, does <em>not</em> add to your SSW counter.</p>
+    checking if something is UB or not). Price Only mode, from what I can tell, does <em>not</em> add to your SSW counter. 
+    However, if you have already exceeded your limit for that hour, it too will not show you results.</p>
 
-<p class="instruct">Turns out, behind the scenes, the data that SSW sends back is identical, but Price Only obscures the useful bits. But we can access the response data ourselves by inspecting the browser!</p>
+<p class="instruct">Turns out, behind the scenes, <b>the data that SSW sends back is identical</b>, but Price Only obscures the useful bits. But we can access the response data ourselves by inspecting the browser!</p>
 
 <ol class="instruct">
-    <li>Right-click any browser page where you can access the SSW - the Inventory view works for now. Click Inspect in the menu popup. 
+    <li><b>Right-click any browser page</b> where you can access the SSW - the Inventory view works for now. <b>Click Inspect</b> in the menu popup. 
         You should see a new frame pop up with a whole bunch of information.</li>
     <li>You're looking for a bunch of tabs such as Console, Elements, Inspector, Network etc. You may need to access a dropdown to see the rest of the tabs. 
-        Open the Network tab. The new display may ask you to refresh the page - do so as you normally would, the frame should stay open on your screen.</li>
-    <li>Submit your SSW request for an item, and tick Price Only (make sure it's not something UB!). In the Network tab, in the Name (or File) column, look for something starting with "ssw_query.php?". 
-        If you look closer you can see the name of the item you searched is also in there. Click that line, just once.</li>
+        <b>Click the Network tab</b>. The new display may ask you to <b>refresh</b> the page - do so as you normally would, the frame should stay open on your screen.</li>
+    <li><b>Submit a SSW request</b> for an item, and <b>tick Price Only</b> (make sure it's not something UB!). In the Network tab, in the Name (or File) column, look for something starting with <b>"ssw_query.php?"</b>. 
+        If you look closer you can see the name of the item you searched is also in there. <b>Click that line</b>, just once.</li>
     <li>
         A new frame will open, with more tabs along the top. These should say things like Headers, Cookies/Payload, Preview, Response etc. 
-        (Again, you may need to access a dropdown to see the rest of the tabs). Click on Response. 
+        (Again, you may need to access a dropdown to see the rest of the tabs). <b>Click on Response</b>. 
         We now have useful numbers - this is the data that is usually returned with the SSW response, except we ticked Price Only so that damn owl hid the good stuff.
         <br>
         <img src="inventoryfirefox.png" alt="Your Image Description" style="max-width: 100%; height: auto;">
@@ -68,7 +69,7 @@
         <li>Think of the table that usually pops up when you do a SSW search - you get the Account Name, the number in stock, and the prices. Most of that data is here, but broken up into columns. </li>
         <li>"rowcount" is the number of results (i.e the number of stores that have stock). </li>
         <li>"amounts" is the stock count for each store found. </li>
-        <li>"prices" is that sweet number we want - all the known shop prices, cheapest first. "price_str" is the same data but with formatting.</li>
+        <li><b>"prices" is that sweet number we want</b> - all the known shop prices, cheapest first. "price_str" is the same data but with formatting.</li>
     </ul>
 </p>
 
@@ -81,7 +82,7 @@
         <h1>Disclaimers</h1>
 <p class="instruct">Yes, this does require digging through some of the site's code, but TNT has made it clear that they don't consider using the inspector as cheating. 
     If one were to write a script that accesses this data, <i>that</i> would be no bueno.
-    Please use this information responsibly!</p>
+    <b>Please use this information responsibly!</b></p>
 
 </div>
 </body>
