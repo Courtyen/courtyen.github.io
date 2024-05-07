@@ -36,12 +36,15 @@
             clear: both;
             display: table;
         }
+        
         /* Define columns */
         .column {
             float: left;
-            width: 50%;
+            width: calc(50% - 20px); /* Adjusted width to accommodate padding */
             padding: 10px;
+            box-sizing: border-box; /* Include padding in the width calculation */
         }
+        
         /* Clear floats after the columns */
         .row:after {
             content: "";
