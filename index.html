@@ -49,22 +49,24 @@
             clear: both;
         }
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9); /* Transparent background color */
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9); /* Transparent background color */
         }
+        
         .modal-content {
             margin: auto;
             display: block;
-            width: 80%;
-            max-width: 700px;
+            width: auto; /* Set width to auto */
+            height: auto; /* Set height to auto */
+            max-width: 100%; /* Ensure the image doesn't exceed the screen width */
+            max-height: 100%; /* Ensure the image doesn't exceed the screen height */
             cursor: pointer; /* Add pointer cursor to image */
         }
         .close {
