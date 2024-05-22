@@ -7,8 +7,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const message = document.getElementById('message');
 
     if (password === correctPassword) {
-        message.style.color = 'green';
-        message.textContent = 'Login successful!';
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'recipe.html';
     } else {
         message.style.color = 'red';
         message.textContent = 'Incorrect password.';
