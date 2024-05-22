@@ -27,16 +27,27 @@
             <li>Heat a griddle or non-stick skillet over medium heat. Lightly grease with butter or oil.</li>
             <li>Pour 1/4 cup of batter onto the griddle for each pancake. Cook until bubbles form on the surface, then flip and cook until golden brown.</li>
         </ol>
-        <button id="logoutButton">Logout</button>
         <h2>Reset Password</h2>
-        <form id="resetForm">
+        <form id="resetPasswordForm">
             <label for="newPassword">New Password:</label>
             <input type="password" id="newPassword" name="newPassword" required>
             <button type="submit">Reset Password</button>
         </form>
-        <div id="resetMessage"></div>
+        <button id="logoutButton">Logout</button>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.4.2/sha.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="recipe.js"></script>
 </body>
 </html>
