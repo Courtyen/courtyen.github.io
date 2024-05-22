@@ -28,7 +28,15 @@
             <li>Pour 1/4 cup of batter onto the griddle for each pancake. Cook until bubbles form on the surface, then flip and cook until golden brown.</li>
         </ol>
         <button id="logoutButton">Logout</button>
+        <h2>Reset Password</h2>
+        <form id="resetForm">
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <button type="submit">Reset Password</button>
+        </form>
+        <div id="resetMessage"></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.4.2/sha.js"></script>
     <script src="recipe.js"></script>
 </body>
 </html>
