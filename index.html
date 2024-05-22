@@ -10,13 +10,55 @@
     <div class="login-container">
         <h2>Login</h2>
         <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
         </form>
         <div id="message"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.4.2/sha.js"></script>
-    <script src="scripts.js"></script>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+        
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpzabzosB6xABAe1DZkdbPBpyBVZNy6pk",
+            authDomain: "courtyen-personal.firebaseapp.com",
+            projectId: "courtyen-personal",
+            storageBucket: "courtyen-personal.appspot.com",
+            messagingSenderId: "921093429622",
+            appId: "1:921093429622:web:b4a2981b2d9a745e76c257",
+            measurementId: "G-VYWY16W5P5"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // Add your login script here
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = 'recipe.html';
+                })
+                .catch((error) => {
+                    message.style.color = 'red';
+                    message.textContent = 'Incorrect email or password.';
+                });
+        });
+
+    </script>
 </body>
 </html>
