@@ -166,18 +166,24 @@ select,
   z-index: 5;
   top: calc(100% + 6px);
   left: 0;
+  display: flex;
+  flex-direction: column;
   width: max(100%, 280px);
   padding: 8px;
+  overflow: hidden;
   background: white;
   border: 1px solid var(--line);
   border-radius: 10px;
   box-shadow: 0 12px 28px rgba(1, 68, 34, 0.12);
 }
 
+.team-panel input[type="search"] { flex: 0 0 auto; }
+
 .team-options {
-  max-height: 240px;
+  min-height: 0;
   margin-top: 8px;
   overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .team-option {

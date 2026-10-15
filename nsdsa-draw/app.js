@@ -135,10 +135,22 @@ function teamButtonLabel() {
   return `${names.length} teams`;
 }
 
+function fitTeamPanel() {
+  if (teamsPanel.hidden) return;
+  const margin = 8;
+  const top = teamsToggle.getBoundingClientRect().bottom + 6;
+  const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  const available = Math.floor(viewportHeight - top - margin);
+  teamsPanel.style.maxHeight = `${Math.max(available, 0)}px`;
+}
+
 function setTeamsOpen(open) {
   teamsPanel.hidden = !open;
   teamsToggle.setAttribute("aria-expanded", open ? "true" : "false");
-  if (open) teamSearch.focus();
+  if (open) {
+    fitTeamPanel();
+    teamSearch.focus();
+  }
 }
 
 function displayOrder(fixtures) {
@@ -472,6 +484,9 @@ async function main() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") setTeamsOpen(false);
   });
+  window.addEventListener("resize", fitTeamPanel);
+  window.addEventListener("scroll", fitTeamPanel, true);
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", fitTeamPanel);
 
   const onChange = () => render(data);
   weekSelect.addEventListener("change", onChange);
