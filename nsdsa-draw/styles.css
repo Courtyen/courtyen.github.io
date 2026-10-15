@@ -190,7 +190,7 @@ select,
   min-width: 0;
 }
 
-.teams-done { display: none; }
+.teams-done { flex: 0 0 auto; }
 
 .team-options {
   min-height: 0;
@@ -354,7 +354,6 @@ select,
 
 @media (max-width: 800px) {
   .filters { position: static; }
-  .teams-done { display: inline; }
   .filter-grid,
   .filter-row { grid-template-columns: 1fr; }
   .duty-toggle { height: auto; white-space: normal; }
