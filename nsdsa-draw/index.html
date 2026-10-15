@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2026 Winter draw · North Shore Softball</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <p class="eyebrow">North Shore District Softball Association</p>
+        <h1>2026 Winter draw</h1>
+        <p class="lede">
+          Filter by week, grade, club, or team, then print just that selection.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <form class="filters no-print" id="filters">
+        <div class="filter-grid">
+          <label>
+            <span class="field-label">Week</span>
+            <select id="week" name="week"></select>
+          </label>
+          <label>
+            <span class="field-label">Grade</span>
+            <select id="grade" name="grade"></select>
+          </label>
+          <label>
+            <span class="field-label">Club</span>
+            <select id="club" name="club"></select>
+          </label>
+        </div>
+        <div class="filter-row">
+          <div class="team-field">
+            <span class="field-label" id="teams-label">Teams</span>
+            <div class="team-picker" id="team-picker">
+              <button
+                type="button"
+                class="team-toggle"
+                id="teams-toggle"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="teams-panel"
+              >
+                All teams
+              </button>
+              <button type="button" class="text-link teams-clear" id="teams-clear">Clear</button>
+              <div class="team-panel" id="teams-panel" hidden role="dialog" aria-labelledby="teams-label">
+                <input id="team-search" type="search" placeholder="Find a team" autocomplete="off" aria-label="Find a team" />
+                <div id="team-options"></div>
+              </div>
+            </div>
+          </div>
+          <label class="duty-toggle">
+            <input type="checkbox" id="duties" />
+            Include relevant duties
+          </label>
+          <div class="filter-actions">
+            <button type="button" id="clear" class="button button-quiet">Clear</button>
+            <button type="button" id="print" class="button">Print draw</button>
+          </div>
+        </div>
+      </form>
+
+      <p class="summary no-print" id="summary"></p>
+      <div id="board" class="board no-print"></div>
+      <div id="print-root" class="print-only"></div>
+    </main>
+
+    <footer class="site-footer no-print">
+      <div class="wrap" id="footer"></div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

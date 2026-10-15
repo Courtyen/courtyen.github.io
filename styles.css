@@ -1,54 +1,103 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+:root {
+  --ink: #1c1917;
+  --muted: #57534e;
+  --line: #e7e5e4;
+  --paper: #f7f5f2;
+  --card: #ffffff;
+  --accent: #14532d;
 }
 
-.login-container, .recipe-container {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.45;
 }
+
+main {
+  width: min(640px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.lede {
+  margin: 16px 0 0;
+  max-width: 38em;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+section { margin-top: 40px; }
 
 h2 {
-    margin-bottom: 20px;
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.project {
+  display: block;
+  margin-top: 10px;
+  padding: 18px 18px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
 }
 
-input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.project:hover,
+.project:focus-visible {
+  border-color: var(--accent);
+  outline: none;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #5cb85c;
-    color: white;
-    font-size: 16px;
+.project-kicker {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
-button:hover {
-    background-color: #4cae4c;
+.project-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-#message {
-    margin-top: 20px;
-    color: red;
+.project-detail {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.project-quiet .project-title { font-size: 17px; }
+
+@media (max-width: 600px) {
+  main { padding-top: 36px; }
+  h1 { font-size: 32px; }
+  .lede { font-size: 16px; }
 }
