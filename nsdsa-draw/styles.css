@@ -177,7 +177,20 @@ select,
   box-shadow: 0 12px 28px rgba(1, 68, 34, 0.12);
 }
 
-.team-panel input[type="search"] { flex: 0 0 auto; }
+.team-panel-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.team-panel-tools input[type="search"] {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.teams-done { display: none; }
 
 .team-options {
   min-height: 0;
@@ -341,6 +354,7 @@ select,
 
 @media (max-width: 800px) {
   .filters { position: static; }
+  .teams-done { display: inline; }
   .filter-grid,
   .filter-row { grid-template-columns: 1fr; }
   .duty-toggle { height: auto; white-space: normal; }

@@ -149,7 +149,10 @@ function setTeamsOpen(open) {
   teamsToggle.setAttribute("aria-expanded", open ? "true" : "false");
   if (open) {
     fitTeamPanel();
-    teamSearch.focus();
+    const touchScreen = window.matchMedia("(pointer: coarse)").matches;
+    if (!touchScreen) teamSearch.focus();
+  } else {
+    teamSearch.blur();
   }
 }
 
@@ -476,6 +479,10 @@ async function main() {
   teamsToggle.addEventListener("click", (event) => {
     event.stopPropagation();
     setTeamsOpen(teamsPanel.hidden);
+  });
+  document.querySelector("#teams-done").addEventListener("click", (event) => {
+    event.stopPropagation();
+    setTeamsOpen(false);
   });
   teamsPanel.addEventListener("click", (event) => event.stopPropagation());
   teamSearch.addEventListener("input", renderTeamOptions);
