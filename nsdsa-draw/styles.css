@@ -177,6 +177,8 @@ select,
   box-shadow: 0 12px 28px rgba(1, 68, 34, 0.12);
 }
 
+.team-panel[hidden] { display: none; }
+
 .team-panel-tools {
   display: flex;
   align-items: center;
